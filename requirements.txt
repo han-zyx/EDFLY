@@ -1,0 +1,12 @@
+ultralytics==8.0.84
+opencv-python==4.7.0.72
+matplotlib==3.7.1
+roboflow==0.4.2
+opencv-python-headless==4.8.0.74
+kafka-python==2.0.2
+flask==2.3.3
+flask-socketio==5.3.3
+eventlet==0.33.3
+pyflink==1.17.1
+requests==2.31.0
+numpy==1.25.0

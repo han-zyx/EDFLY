@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Object Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="file"] {
+            margin: 20px;
+        }
+        img {
+            max-width: 80%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload Image for YOLO Object Detection</h1>
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="uploadImage()">Upload</button>
+        <div id="resultContainer">
+            <h3>Processed Image:</h3>
+            <img id="outputImage" src="" alt="Processed Image" style="display:none;">
+        </div>
+    </div>
+
+    <script>
+        function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select an image first.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to process image');
+                }
+                return response.blob();
+            })
+            .then(imageBlob => {
+                const imageUrl = URL.createObjectURL(imageBlob);
+                const outputImage = document.getElementById('outputImage');
+                outputImage.src = imageUrl;
+                outputImage.style.display = 'block'; // Display the image
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+                alert('There was an error processing the image.');
+            });
+        }
+    </script>
+
+</body>
+</html>

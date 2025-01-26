@@ -1,0 +1,4 @@
+# edge-detector/requirements.txt
+opencv-python==4.7.0.72
+kafka-python==2.0.2
+numpy==1.24.3

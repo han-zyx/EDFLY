@@ -1,0 +1,26 @@
+#Commands for start kafka server and flink cluster and send job.
+
+
+Start Zookeeper (in a new terminal):
+	bin/zookeeper-server-start.sh config/zookeeper.properties
+	
+Start Kafka (in another terminal):
+	bin/kafka-server-start.sh config/server.properties
+	
+Create Kafka Topics:
+	bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
+	
+	bin/kafka-topics.sh --create --topic output-topic --bootstrap-server localhost:9092 - create output for proceed data (optional)
+	
+
+
+Start Flink Cluster:
+	./bin/start-cluster.sh
+	
+	
+Build the JAR
+	mvn clean package
+	
+	
+Submit the Job:
+	bin/flink run -c KafkaFlinkJsonIntegration ../flink-yolov8-demo/target/flink-kafka-demo-1.0.jar

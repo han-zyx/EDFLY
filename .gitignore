@@ -4,3 +4,5 @@ kafka_2.12-3.9.0/
 
 /withJSON/flink-1.13.6
 /withJSON/kafka_2.13-2.8.0
+*.jar
+*.tgz

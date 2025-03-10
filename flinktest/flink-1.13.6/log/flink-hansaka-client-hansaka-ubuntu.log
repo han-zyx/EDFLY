@@ -1,0 +1,46 @@
+2025-02-25 12:27:20,156 INFO  org.apache.flink.client.cli.CliFrontend                      [] - --------------------------------------------------------------------------------
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  Starting Command Line Client (Version: 1.13.6, Scala: 2.12, Rev:b2ca390, Date:2022-02-03T14:54:22+01:00)
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  OS current user: hansaka
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  Current Hadoop/Kerberos user: <no hadoop dependency found>
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  JVM: OpenJDK 64-Bit Server VM - Ubuntu - 11/11.0.26+4-post-Ubuntu-1ubuntu122.04
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  Maximum heap size: 1962 MiBytes
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  JAVA_HOME: (not set)
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  No Hadoop Dependency available
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  JVM Options:
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     -Dlog.file=/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/log/flink-hansaka-client-hansaka-ubuntu.log
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     -Dlog4j.configuration=file:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/conf/log4j-cli.properties
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     -Dlog4j.configurationFile=file:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/conf/log4j-cli.properties
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     -Dlogback.configurationFile=file:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/conf/logback.xml
+2025-02-25 12:27:20,158 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  Program Arguments:
+2025-02-25 12:27:20,159 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     run
+2025-02-25 12:27:20,159 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     -c
+2025-02-25 12:27:20,160 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     KafkaFlinkJsonIntegration
+2025-02-25 12:27:20,160 INFO  org.apache.flink.client.cli.CliFrontend                      [] -     ../flink-yolov8-demo/target/flink-kafka-demo-1.0.jar
+2025-02-25 12:27:20,160 INFO  org.apache.flink.client.cli.CliFrontend                      [] -  Classpath: /home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-csv-1.13.6.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-json-1.13.6.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-shaded-zookeeper-3.4.14.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-table_2.12-1.13.6.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-table-blink_2.12-1.13.6.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/log4j-1.2-api-2.17.1.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/log4j-api-2.17.1.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/log4j-core-2.17.1.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/log4j-slf4j-impl-2.17.1.jar:/home/hansaka/fyp/EDFLY/withJSON/flink-1.13.6/lib/flink-dist_2.12-1.13.6.jar:::
+2025-02-25 12:27:20,160 INFO  org.apache.flink.client.cli.CliFrontend                      [] - --------------------------------------------------------------------------------
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.rpc.address, localhost
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.rpc.port, 6123
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.memory.process.size, 1600m
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: taskmanager.memory.process.size, 1728m
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: taskmanager.numberOfTaskSlots, 1
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: parallelism.default, 1
+2025-02-25 12:27:20,163 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: jobmanager.execution.failover-strategy, region
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporters, prometheus
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.class, org.apache.flink.metrics.prometheus.PrometheusReporter
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.host, "0.0.0.0"
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.port, 9249
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporters, prometheus
+2025-02-25 12:27:20,164 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.class, org.apache.flink.metrics.prometheus.PrometheusReporter
+2025-02-25 12:27:20,165 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.host, "112.134.231.79"
+2025-02-25 12:27:20,165 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: metrics.reporter.prometheus.port, 9249
+2025-02-25 12:27:20,186 INFO  org.apache.flink.client.cli.CliFrontend                      [] - Loading FallbackYarnSessionCli
+2025-02-25 12:27:20,216 INFO  org.apache.flink.core.fs.FileSystem                          [] - Hadoop is not in the classpath/dependencies. The extended set of supported File Systems via Hadoop is not available.
+2025-02-25 12:27:20,248 INFO  org.apache.flink.runtime.security.modules.HadoopModuleFactory [] - Cannot create Hadoop Security Module because Hadoop cannot be found in the Classpath.
+2025-02-25 12:27:20,261 INFO  org.apache.flink.runtime.security.modules.JaasModule         [] - Jaas file will be created as /tmp/jaas-663687952994736817.conf.
+2025-02-25 12:27:20,268 INFO  org.apache.flink.runtime.security.contexts.HadoopSecurityContextFactory [] - Cannot install HadoopSecurityContext because Hadoop cannot be found in the Classpath.
+2025-02-25 12:27:20,269 INFO  org.apache.flink.client.cli.CliFrontend                      [] - Running 'run' command.
+2025-02-25 12:27:20,440 INFO  org.apache.flink.client.cli.CliFrontend                      [] - Building program from JAR file
+2025-02-25 12:27:20,470 INFO  org.apache.flink.client.ClientUtils                          [] - Starting program (detached: false)
+2025-02-25 12:27:20,666 WARN  org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer [] - Property [transaction.timeout.ms] not specified. Setting it to 3600000 ms
+2025-02-25 12:27:20,770 INFO  org.apache.flink.configuration.Configuration                 [] - Config uses fallback configuration key 'jobmanager.rpc.address' instead of key 'rest.address'
+2025-02-25 12:27:48,319 INFO  org.apache.flink.configuration.Configuration                 [] - Config uses fallback configuration key 'jobmanager.rpc.address' instead of key 'rest.address'

@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # Zookeeper service (required for Kafka)
+  zookeeper:
+    image: zookeeper:3.5
+    container_name: zookeeper
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - ZOOKEEPER_TICK_TIME=2000
+    ports:
+      - "2181:2181"   # Zookeeper listener port
+    networks:
+      - flink-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      retries: 5
+
+  # Kafka service
+  kafka:
+    image: confluentinc/cp-kafka:7.0.1
+    container_name: kafka
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LISTENERS=PLAINTEXT://:9093
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9093
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    ports:
+      - "9093:9093"
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    networks:
+      - flink-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9093"]
+      interval: 10s
+      retries: 5
+
+  # Flink JobManager
+  jobmanager:
+    image: apache/flink:1.13.6-scala_2.11
+    container_name: flink-jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    ports:
+      - "8081:8081"  # Flink Web UI
+    volumes:
+      - ./flink-1.13.6/conf:/opt/flink/conf
+      - ./custom-scripts:/opt/flink/custom-scripts
+    command: jobmanager
+    depends_on:
+      kafka:
+        condition: service_healthy
+    networks:
+      - flink-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8081"]
+      interval: 10s
+      retries: 5
+
+  # Flink TaskManager
+  taskmanager:
+    image: apache/flink:1.13.6-scala_2.11
+    container_name: flink-taskmanager
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: taskmanager
+    networks:
+      - flink-network
+
+  # Flink Job Submitter
+  job-submitter:
+    image: apache/flink:1.13.6-scala_2.11
+    container_name: job-submitter
+    volumes:
+      - ./flink-yolov8-demo/target/flink-kafka-demo-1.0.jar:/opt/flink/flink-kafka-demo-1.0.jar
+    command: >
+      sh -c "sleep 10 && flink run -c KafkaFlinkJsonIntegration -m jobmanager:8081 /opt/flink/flink-kafka-demo-1.0.jar"
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    networks:
+      - flink-network
+
+networks:
+  flink-network:
+    driver: bridge

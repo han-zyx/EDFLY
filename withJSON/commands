@@ -4,18 +4,32 @@
 Start Zookeeper (in a new terminal):
 	bin/zookeeper-server-start.sh config/zookeeper.properties
 	
+	stop - bin/zookeeper-server-stop.sh 
+	
 Start Kafka (in another terminal):
 	bin/kafka-server-start.sh config/server.properties
+
+	stop - bin/kafka-server-stop.sh
 	
 Create Kafka Topics:
 	bin/kafka-topics.sh --create --topic input-topic --bootstrap-server localhost:9092
 	
 	bin/kafka-topics.sh --create --topic output-topic --bootstrap-server localhost:9092 - create output for proceed data (optional)
 	
+	
+	
+	KAFKA_OPTS="-javaagent:/home/hansaka/fyp/EDFLY/withJSON/jmx_prometheus_javaagent-0.16.1.jar=9091:/home/hansaka/fyp/EDFLY/withJSON/kafka-2_0_0.yml" bin/kafka-server-start.sh config/server.properties
+
+
+	
 
 
 Start Flink Cluster:
-	./bin/start-cluster.sh
+	bin/start-cluster.sh
+
+Stop Flink Cluster:
+	bin/stop-cluster.sh
+
 	
 	
 Build the JAR
@@ -24,3 +38,57 @@ Build the JAR
 	
 Submit the Job:
 	bin/flink run -c KafkaFlinkJsonIntegration ../flink-yolov8-demo/target/flink-kafka-demo-1.0.jar
+	
+	
+	
+
+flink version - flink-1.13.6
+kafka version - kafka_2.13-2.8.0
+
+
+sudo docker-compose down --volumes
+sudo docker system prune -f
+
+
+sudo docker-compose up --build -d
+
+sudo docker-compose down
+
+
+
+
+
+
+
+install Prometheus and Grafana
+
+Prometheus : 
+
+	sudo apt install prometheus
+	
+Grafana : 
+
+	sudo apt update && sudo apt upgrade -y
+
+	sudo apt-get install -y software-properties-common
+	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+	
+	sudo apt update
+	sudo apt install grafana -y
+	
+	sudo systemctl start grafana-server
+
+	sudo systemctl enable grafana-server
+
+	port : 3000
+	
+	
+	
+edit prometheus yml file : sudo nano /etc/prometheus/prometheus.yml
+
+restart prometheus : sudo systemctl restart prometheus
+
+restart Grafana : sudo systemctl restart grafana-server
+
+

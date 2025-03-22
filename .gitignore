@@ -1,16 +1,4 @@
-env/
 kafka/
 flink/
-flink_jar/
 
 
-# /withJSON/flink-1.13.6
-# /withJSON/kafka_2.13-2.8.0
-# *.jar
-# *.tgz
-
-# *.tgz
-# *.jar
-# withJSON/flink-yolov8-demo/target/
-# withJSON/flink-kafka-demo/target/
-# withJSON/kafka_2.13-2.8.0/

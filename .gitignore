@@ -1,6 +1,7 @@
 env/
 kafka/
 flink/
+flink_jar/
 
 
 # /withJSON/flink-1.13.6

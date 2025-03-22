@@ -1,3 +1,0 @@
-opencv-python==4.8.0.76        # Full OpenCV with GUI support
-onnxruntime      # ONNX Runtime for inference
-numpy==1.23.5                  # NumPy for numerical operations

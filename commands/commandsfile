@@ -1,6 +1,6 @@
 #Commands for start kafka server and flink cluster and send job.
 
-export KAFKA_OPTS="-javaagent:/home/hansaka/fyp/EDFLY/withJSON/kafka/libs/jmx_prometheus_javaagent-0.16.1.jar=9093:/home/hansaka/fyp/EDFLY/withJSON/kafka/kafka-jmx-exporter.yaml" 
+export KAFKA_OPTS="-javaagent:/home/hansaka/fyp/EDFLY/kafka/libs/jmx_prometheus_javaagent-0.16.1.jar=9093:/home/hansaka/fyp/EDFLY/kafka/kafka-jmx-exporter.yaml" 
 
 
 Start Zookeeper (in a new terminal):
@@ -112,7 +112,7 @@ restart Grafana : sudo systemctl restart grafana-server
 
 
 connect to RDS :
-	psql -h edflydb.clcy0ayas2pc.ap-south-1.rds.amazonaws.com -U edfly_admin -d postgres
+	psql -h edflydb.clcy0ayas2pc.ap-south-1.rds.amazonaws.com -U edfly_admin -d licenseplatesdb
 
 
 

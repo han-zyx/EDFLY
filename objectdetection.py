@@ -12,7 +12,8 @@ producer = KafkaProducer(
 )
 
 # Initialize the webcam
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("sample2.mp4")
 
 # Initialize YOLOv8 object detector
 model_path = "mlmodel.onnx"

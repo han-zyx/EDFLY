@@ -146,7 +146,7 @@ public class KafkaFlinkJsonIntegration {
         // Flink execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        // Kafka Consumer Properties
+        // Kafka Properties
         Properties consumerProps = new Properties();
         consumerProps.setProperty("bootstrap.servers", "localhost:9092");
         consumerProps.setProperty("group.id", "flink-consumer-group");
@@ -156,13 +156,13 @@ public class KafkaFlinkJsonIntegration {
         FlinkKafkaConsumer<String> kafkaConsumer = new FlinkKafkaConsumer<>(
             "input-topic", new SimpleStringSchema(), consumerProps);
 
-        // Hardcoded database credentials
+        //database credentials
         String dbHost = "edflydb.clcy0ayas2pc.ap-south-1.rds.amazonaws.com";
         String dbName = "licenseplatesdb";
         String dbUser = "edfly_admin";
         String dbPass = "ranolika098";
 
-        // Test DB connection upfront
+        // Test DB connection
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:postgresql://" + dbHost + ":5432/" + dbName, dbUser, dbPass)) {
             LOG.info("Successfully connected to RDS: jdbc:postgresql://{}:5432/{}", dbHost, dbName);
